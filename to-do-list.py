@@ -28,8 +28,11 @@ def mark_done():
     try:
         index = int(input("Enter a task number to mark as done: ")) - 1 
         if 0 <= index < len(tasks):
-            tasks[index]["done"] = True
-            print("Marked as done!")
+            if tasks[index]["done"]:
+          print("Task is already marked as done!")
+        else:
+          tasks[index]["done"] = True
+          print("Marked as done!")
         else:
             print("Invalid number!")
     except ValueError:
@@ -52,7 +55,7 @@ def delete_task():
 
 while True:
     show_menu()
-    choice = input("Enter and option (1-5): ")
+    choice = input("Enter an option (1-5): ")
     if choice == '1':
         add_task()
     elif choice == '2':
